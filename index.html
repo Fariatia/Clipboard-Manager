@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clipboard Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .snippet {
+      margin-bottom: 10px;
+    }
+
+    .snippet button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      margin-top: 5px;
+    }
+
+    .snippet button:hover {
+      background-color: #45a049;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-family: inherit;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Clipboard Manager</h2>
+  
+  <div class="snippet">
+    <label for="snippet1">Snippet 1</label>
+    <textarea id="snippet1" rows="2">Hello, this is a quick message template.</textarea>
+    <button onclick="copyToClipboard('snippet1')">Copy to Clipboard</button>
+  </div>
+
+  <div class="snippet">
+    <label for="snippet2">Snippet 2</label>
+    <textarea id="snippet2" rows="2">Your address: 1234 Street, City, Country.</textarea>
+    <button onclick="copyToClipboard('snippet2')">Copy to Clipboard</button>
+  </div>
+
+  <div class="snippet">
+    <label for="snippet3">Snippet 3</label>
+    <textarea id="snippet3" rows="2">This is a common JavaScript code snippet.</textarea>
+    <button onclick="copyToClipboard('snippet3')">Copy to Clipboard</button>
+  </div>
+</div>
+
+<script>
+    // java practice, i hope it works !!!.
+    
+  function copyToClipboard(id) {
+    var textArea = document.getElementById(id);
+    textArea.select();
+    textArea.setSelectionRange(0, 99999); // for mobile devices
+
+    // this part copies the text inside the text field
+    document.execCommand("copy");
+
+    // sends an alert indicating the copied text
+    alert("Copied the text: " + textArea.value);
+  }
+</script>
+
+</body>
+</html>
